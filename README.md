@@ -46,32 +46,25 @@ RESTful API для управления учебным расписанием и
     *   **Тело запроса (JSON):**
         ```json
         {
-          "subject": "string",      
-          "startTime": "string",    
-          "endTime": "string",      
-          "location": "string"     
+          "Subject":"subject",
+	"Date":"date",   // формат YYYY-MM-DD
+	"StartTime":"start_time", // HH:MM
+	"EndTime":"end_time"    
         }
         ```
     *   **Пример тела:**
         ```json
         {
           "subject": "Математический Анализ",
-          "startTime": "2025-12-10 10:00",
-          "endTime": "2025-12-10 11:30",
-          "location": "Аудитория 205"
+        "Date":"2025-10-10", 
+          "startTime": " 10:00",
+          "endTime": " 11:30",
+         
         }
         ```
 *   **GET `/Lessons/{id}`** - Получить занятие по его ID (например, `/Lessons/1`).
 *   **PUT `/Lessons/{id}`** - Обновить занятие по его ID.
-    *   **Тело запроса (JSON):** Аналогично POST, но обновляются только указанные поля (в зависимости от реализации, часто заменяет весь объект).
-        ```json
-        {
-          "subject": "Обновленный предмет",
-          "startTime": "2025-12-10 10:15",
-          "endTime": "2025-12-10 11:45",
-          "location": "Новое место"
-        }
-        ```
+   
 *   **DELETE `/Lessons/{id}`** - Удалить занятие по его ID.
 
 ### Задания (Assignments)
@@ -81,32 +74,23 @@ RESTful API для управления учебным расписанием и
     *   **Тело запроса (JSON):**
         ```json
         {
-          "title": "string",        
-          "description": "string",  
-          "dueDate": "string",      
-          "completed": "boolean"    
+          "Title" :"title",
+	"Subject":"subject",
+	"DueDate":"due_date", // YYYY-MM-DD
+	"Completed:"completed" 
         }
         ```
     *   **Пример тела:**
         ```json
         {
           "title": "Лабораторная работа №5",
-          "description": "Выполнить задания по разделу 3.2",
-          "dueDate": "2025-12-15 23:59",
+          "Subject":"химия",
+          "dueDate": "2025-12-15",
           "completed": false
         }
         ```
 *   **GET `/assignments/{id}`** - Получить задание по его ID (например, `/assignments/1`).
 *   **PUT `/assignments/{id}`** - Обновить задание по его ID.
-    *   **Тело запроса (JSON):** Аналогично POST.
-        ```json
-        {
-          "title": "Обновленное задание",
-          "description": "Новое описание",
-          "dueDate": "2025-12-20T23:59:00Z",
-          "completed": true
-        }
-        ```
 *   **DELETE `/assignments/{id}`** - Удалить задание по его ID.
 
 
